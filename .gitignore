@@ -174,3 +174,4 @@ dist/**/*
 
 .vscode/
 
+!vercel.json
