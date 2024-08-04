@@ -5,7 +5,7 @@ const app = express();
 app.use(json());
 
 app.get("/", (req: Request, res: Response) => {
-  res.status(200).json("Hello");
+  res.status(200).json("Mc thing...");
 });
 
 app.post("/api/log", (req: Request, res: Response) => {
