@@ -1,11 +1,20 @@
 import express, { json, Request, Response } from "express";
-import { addLog, getLogs } from "./log";
+import { addLog, clearLogs, getLogs } from "./log";
 
 const app = express();
 app.use(json());
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json("Hello");
+});
+
+app.delete("/api/log/clear", (req: Request, res: Response) => {
+  try {
+    const ret = clearLogs();
+    res.status(200).json(ret);
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
 });
 
 app.post("/api/log", (req: Request, res: Response) => {

@@ -1,9 +1,14 @@
 import { dbReadLogs, dbUpdateLogs } from "./db";
 
+function clearLogs() {
+  dbUpdateLogs([]);
+  return {};
+}
+
 function getLogs() {
-    return {
-        logs: dbReadLogs()
-    }
+  return {
+    logs: dbReadLogs(),
+  };
 }
 
 function addLog(log: string) {
@@ -14,4 +19,4 @@ function addLog(log: string) {
   return {};
 }
 
-export { addLog, getLogs};
+export { addLog, getLogs, clearLogs };
